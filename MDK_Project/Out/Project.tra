@@ -1,0 +1,54 @@
+*** Creating Trace Output File '.\Out\Project.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\out\startup_stm32f10x_hd.o"'
+### List of Objects: adding '".\out\core_cm3.o"'
+### List of Objects: adding '".\out\system_stm32f10x.o"'
+### List of Objects: adding '".\out\stm32f10x_gpio.o"'
+### List of Objects: adding '".\out\stm32f10x_rcc.o"'
+### List of Objects: adding '".\out\stm32f10x_usart.o"'
+### List of Objects: adding '".\out\misc.o"'
+### List of Objects: adding '".\out\stm32f10x_rtc.o"'
+### List of Objects: adding '".\out\stm32f10x_bkp.o"'
+### List of Objects: adding '".\out\stm32f10x_pwr.o"'
+### List of Objects: adding '".\out\stm32f10x_spi.o"'
+### List of Objects: adding '".\out\stm32f10x_flash.o"'
+### List of Objects: adding '".\out\stm32f10x_dma.o"'
+### List of Objects: adding '".\out\stm32f10x_adc.o"'
+### List of Objects: adding '".\out\stm32f10x_tim.o"'
+### List of Objects: adding '".\out\stm32f10x_exti.o"'
+### List of Objects: adding '".\out\stm32f10x_can.o"'
+### List of Objects: adding '".\out\stm32f10x_iwdg.o"'
+### List of Objects: adding '".\out\stm32f10x_it.o"'
+### List of Objects: adding '".\out\driver.o"'
+### List of Objects: adding '".\out\syspara.o"'
+### List of Objects: adding '".\out\selfdef.o"'
+### List of Objects: adding '".\out\gps.o"'
+### List of Objects: adding '".\out\gprs.o"'
+### List of Objects: adding '".\out\sim.o"'
+### List of Objects: adding '".\out\ppp.o"'
+### List of Objects: adding '".\out\protocol.o"'
+### List of Objects: adding '".\out\flash.o"'
+### List of Objects: adding '".\out\fram.o"'
+### List of Objects: adding '".\out\systask.o"'
+### List of Objects: adding '".\out\ftp.o"'
+### List of Objects: adding '".\out\sms.o"'
+### List of Objects: adding '".\out\can.o"'
+### List of Objects: adding '".\out\localcomm.o"'
+### List of Objects: adding '".\out\main.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\out\startup_stm32f10x_hd.o" ".\out\core_cm3.o" ".\out\system_stm32f10x.o" ".\out\stm32f10x_gpio.o" ".\out\stm32f10x_rcc.o" ".\out\stm32f10x_usart.o" ".\out\misc.o" ".\out\stm32f10x_rtc.o" ".\out\stm32f10x_bkp.o" ".\out\stm32f10x_pwr.o" ".\out\stm32f10x_spi.o" ".\out\stm32f10x_flash.o" ".\out\stm32f10x_dma.o" ".\out\stm32f10x_adc.o" ".\out\stm32f10x_tim.o" ".\out\stm32f10x_exti.o" ".\out\stm32f10x_can.o" ".\out\stm32f10x_iwdg.o" ".\out\stm32f10x_it.o" ".\out\driver.o" ".\out\syspara.o" ".\out\selfdef.o" ".\out\gps.o" ".\out\gprs.o" ".\out\sim.o" ".\out\ppp.o" ".\out\protocol.o" ".\out\flash.o" ".\out\fram.o" ".\out\systask.o" ".\out\ftp.o" ".\out\sms.o" ".\out\can.o" ".\out\localcomm.o" ".\out\main.o" 
+--strict --scatter ".\Out\Project.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\Project.map" -o .\Out\Project.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Out\Project.axf'
+### ADS-LD Command File: '.\Out\Project.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Out\Project.lnp', Handle=0x00000254
+### Writing '.lnp' file
+### ADS-LD Command file '.\Out\Project.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

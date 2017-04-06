@@ -1,0 +1,5 @@
+--cpu Cortex-M3 ".\out\startup_stm32f10x_hd.o" ".\out\core_cm3.o" ".\out\system_stm32f10x.o" ".\out\stm32f10x_gpio.o" ".\out\stm32f10x_rcc.o" ".\out\stm32f10x_usart.o" ".\out\misc.o" ".\out\stm32f10x_rtc.o" ".\out\stm32f10x_bkp.o" ".\out\stm32f10x_pwr.o" ".\out\stm32f10x_spi.o" ".\out\stm32f10x_flash.o" ".\out\stm32f10x_dma.o" ".\out\stm32f10x_adc.o" ".\out\stm32f10x_tim.o" ".\out\stm32f10x_exti.o" ".\out\stm32f10x_can.o" ".\out\stm32f10x_iwdg.o" ".\out\stm32f10x_it.o" ".\out\driver.o" ".\out\syspara.o" ".\out\selfdef.o" ".\out\gps.o" ".\out\gprs.o" ".\out\sim.o" ".\out\ppp.o" ".\out\protocol.o" ".\out\flash.o" ".\out\fram.o" ".\out\systask.o" ".\out\ftp.o" ".\out\sms.o" ".\out\can.o" ".\out\localcomm.o" ".\out\main.o" 
+--strict --scatter ".\Out\Project.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\List\Project.map" -o .\Out\Project.axf
