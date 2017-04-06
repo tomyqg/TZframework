@@ -18,7 +18,7 @@ void TermOffPwrAndPeriDeInit(void)
 }
 void TermOnPwrAndPeriReInit(void)
 {
-	SysClkConfigStop();///åœæ­¢æ¨¡å¼å”¤é†’åï¼ŒHSEé‡æ–°é…ç½®
+	SysClkConfigStop();///Í£Ö¹Ä£Ê½»½ĞÑºó£¬HSEÖØĞÂÅäÖÃ
 	
 	RCC->AHBENR = 0x14;
 	RCC->APB1ENR = 0x18000000;
@@ -148,7 +148,7 @@ void TermEnterSleep(void)
 	RTC_WaitForLastTask();
 	FeedWtd();
 	LocalDebug("term wake up...\r\n",StrLen("term wake up...\r\n",0),LOCAL_TEST_DEBUG);
-	RtcGetCalendarTime(sys_work_para_struct.date_time);///è·å–æ—¶é—´
+	RtcGetCalendarTime(sys_work_para_struct.date_time);///»ñÈ¡Ê±¼ä
 	
 	sys_misc_run_struct.gps_need_datetime_check_flag = TRUE;
 	
@@ -165,7 +165,7 @@ void TermEnterSleep(void)
 			{
 				LocalDebug("term 12 clock reset\r\n",StrLen("term 12 clock reset\r\n",0),LOCAL_TEST_DEBUG);
 				sys_work_para_struct.term_3_clock_reset_flag = TRUE;
-				TermReset();///3ç‚¹å¤ä½
+				TermReset();///3µã¸´Î»
 			}
 		}
 	#endif
@@ -177,7 +177,7 @@ void TermEnterSleep(void)
 	}
 }
 	
-void GsmCsqCheckMonitor(uint16 past_sec)///GSMçŠ¶æ€ç›‘æµ‹
+void GsmCsqCheckMonitor(uint16 past_sec)///GSM×´Ì¬¼à²â
 {
 	sys_misc_run_struct.gsm_csq_check_sec_counter += past_sec;
 	if(sys_misc_run_struct.gsm_csq_check_sec_counter >= 1573)
@@ -200,7 +200,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 {
 	uint16 i,into_sleep_timer;
 	
-	if(!ACC_STATE())///ACCå¼€
+	if(!ACC_STATE())///ACC¿ª
 	{
 		sys_work_para_struct.acc_on_sec_statistic_counter++;
 		sys_work_para_struct.acc_on_sec_counter += past_sec;
@@ -228,7 +228,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 			ProUpWorkPara();
 		}
 	}
-	else///ACCå…³
+	else///ACC¹Ø
 	{
 		sys_work_para_struct.acc_off_sec_counter += past_sec;
 		OFF_5V_PWR();
@@ -243,7 +243,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 				LocalDebug("ACC off\r\n",StrLen("ACC off\r\n",0),LOCAL_TEST_DEBUG);
 			}
 		}
-		///æ‹–è½¦æŠ¥è­¦,æŒ‰ACCå¼€é—´éš”ä¸Šä¼ å·¥ä½œå‚æ•°
+		///ÍÏ³µ±¨¾¯,°´ACC¿ª¼ä¸ôÉÏ´«¹¤×÷²ÎÊı
 		
 		if((sys_work_para_struct.term_run_status_word & STATE_TRAILER)&&
 		   (sys_work_para_struct.acc_off_sec_counter >= sys_private_para_struct.acc_on_up_work_para_sec_timer))
@@ -251,7 +251,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 			sys_work_para_struct.acc_off_sec_counter = 0x00;
 			ProUpWorkPara();
 		}
-		else///éæ‹–è½¦æ—¶,æŒ‰ACCå…³é—´éš”ä¸Šä¼ 
+		else///·ÇÍÏ³µÊ±,°´ACC¹Ø¼ä¸ôÉÏ´«
 		{
 			if(sys_work_para_struct.acc_off_sec_counter >= (sys_private_para_struct.acc_off_up_work_para_sec_timer - SYS_AHEAD_WAKEUP_SEC_TIMER))
 			{
@@ -275,7 +275,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 				 
 				if(sys_work_para_struct.acc_off_sec_counter >= into_sleep_timer)
 				{
-					for(i=0;i<PRO_MAX_TX_BUF_ARRAY;i++)///å¦‚æœä¸Šè¡Œå‘é€åŒºæœ‰æ•°æ®,åˆ™å»¶è¿Ÿ5ç§’ç¡çœ 
+					for(i=0;i<PRO_MAX_TX_BUF_ARRAY;i++)///Èç¹ûÉÏĞĞ·¢ËÍÇøÓĞÊı¾İ,ÔòÑÓ³Ù5ÃëË¯Ãß
 					{
 						if(pro_struct.tx_struct.re_tx_full_flag[i])
 						{
@@ -291,7 +291,7 @@ void AccMonitor(uint16 past_sec,uint8 time[])
 					{
 						sys_misc_run_struct.again_into_sleep_flag = FALSE;
 						sys_misc_run_struct.wake_up_by_exit_flag = FALSE;
-						sys_misc_run_struct.term_enter_sleep_flag = TRUE;///ç»ˆç«¯è¿›å…¥ä¼‘çœ 
+						sys_misc_run_struct.term_enter_sleep_flag = TRUE;///ÖÕ¶Ë½øÈëĞİÃß
 					}
 				}
 			}
@@ -306,7 +306,7 @@ void PowerMonitor(uint16 past_sec)
 	if(!PWR_STATE())
 	{
 		s_pwr_down_sec_counter += past_sec;
-		if(s_pwr_down_sec_counter >= 300)///æ–­å¤–ç”µï¼Œ300ç§’æŠ¥è­¦
+		if(s_pwr_down_sec_counter >= 300)///¶ÏÍâµç£¬300Ãë±¨¾¯
 		{
 			if(!(sys_work_para_struct.term_run_status_word & STATE_PWR_DOWN))
 			{
@@ -319,13 +319,13 @@ void PowerMonitor(uint16 past_sec)
 	}
 	else
 	{
-		if(s_pwr_down_sec_counter > 3)///æ–­å¤–ç”µ3ç§’å,å†é‡æ–°ä¸Šç”µ,ç³»ç»Ÿé‡å¯
+		if(s_pwr_down_sec_counter > 3)///¶ÏÍâµç3Ãëºó,ÔÙÖØĞÂÉÏµç,ÏµÍ³ÖØÆô
 		{
 			LocalDebug("power on restart\r\n",StrLen("power on restart\r\n",0),LOCAL_TEST_DEBUG);
 			TermReset();
 		}
 		s_pwr_on_sec_counter += past_sec;
-		if(s_pwr_on_sec_counter >= 120)///ä¸Šå¤–ç”µï¼Œ120ç§’è§£é™¤æŠ¥è­¦
+		if(s_pwr_on_sec_counter >= 120)///ÉÏÍâµç£¬120Ãë½â³ı±¨¾¯
 		{
 			if(sys_work_para_struct.term_run_status_word & STATE_PWR_DOWN)
 			{
@@ -345,7 +345,7 @@ void ShellMonitor(uint16 past_sec)
 	{ 
 		shell_on_sec_counter = 0;
 		shell_off_sec_counter += past_sec;
-		if(shell_off_sec_counter >= 3)///æ‹†ç›–ï¼Œ3ç§’æŠ¥è­¦
+		if(shell_off_sec_counter >= 3)///²ğ¸Ç£¬3Ãë±¨¾¯
 		{
 			if(!(sys_work_para_struct.term_run_status_word & STATE_SHELL_OFF))
 			{
@@ -359,7 +359,7 @@ void ShellMonitor(uint16 past_sec)
 	{
 		shell_off_sec_counter = 0;
 		shell_on_sec_counter += past_sec;
-		if(shell_on_sec_counter >= 60)///åˆä¸Šç›–ï¼Œ60ç§’è§£é™¤æŠ¥è­¦
+		if(shell_on_sec_counter >= 60)///ºÏÉÏ¸Ç£¬60Ãë½â³ı±¨¾¯
 		{
 			if(sys_work_para_struct.term_run_status_word & STATE_SHELL_OFF)
 			{
@@ -384,7 +384,7 @@ void GpsAntMonitor(uint16 past_sec)
 		{
 			sys_work_para_struct.gps_ant_off_sec_counter = 600;
 		}
-		if(ant_off_sec_counter >= 120)///å»é™¤å¤©çº¿ï¼Œ120ç§’æŠ¥è­¦
+		if(ant_off_sec_counter >= 120)///È¥³ıÌìÏß£¬120Ãë±¨¾¯
 		{
 			if(!(sys_work_para_struct.term_run_status_word & STATE_GPS_ANT_OFF))
 			{
@@ -398,7 +398,7 @@ void GpsAntMonitor(uint16 past_sec)
 	{
 		ant_off_sec_counter = 0;
 		ant_on_sec_counter += past_sec;
-		if(ant_on_sec_counter >= 5)///æ¥ä¸Šå¤©çº¿ï¼Œ5ç§’è§£é™¤æŠ¥è­¦
+		if(ant_on_sec_counter >= 5)///½ÓÉÏÌìÏß£¬5Ãë½â³ı±¨¾¯
 		{
 			sys_work_para_struct.gps_ant_off_sec_counter = 0;
 			if(sys_work_para_struct.term_run_status_word & STATE_GPS_ANT_OFF)
@@ -410,7 +410,7 @@ void GpsAntMonitor(uint16 past_sec)
 		}
 	}
 }
-void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
+void GpsMonitor(uint16 past_sec)///GPSÄ£¿é¹ÊÕÏ¼ì²â,ÖØÆô²ßÂÔ
 {
 	static uint8 s_sec_counter_1 = 0;
 	static uint16 s_sec_counter_2 = 0;
@@ -421,7 +421,7 @@ void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
 		s_sec_counter_2 = 0;
 		if(sys_work_para_struct.term_run_status_word & STATE_GPS_BREAKDOWN)
 		{
-			sys_work_para_struct.term_run_status_word &= ~STATE_GPS_BREAKDOWN;///GPSæ¥æ”¶åˆ°æ•°æ®ï¼Œè§£é™¤æŠ¥è­¦
+			sys_work_para_struct.term_run_status_word &= ~STATE_GPS_BREAKDOWN;///GPS½ÓÊÕµ½Êı¾İ£¬½â³ı±¨¾¯
 			ProUpAlarm(ALRM_FLAG_CLEAR_BYTE|ALRM_FLAG_GPS_BREAKDOWN);
 			LocalDebug("gps module breakdown alarm cancel\r\n",StrLen("gps module breakdown alarm cancel\r\n",0),LOCAL_TEST_DEBUG);
 		}
@@ -429,7 +429,7 @@ void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
 	else
 	{
 		s_sec_counter_2 += past_sec;
-		if(s_sec_counter_2 >= GPS_BREAK_DOWM_SEC_TIMER)///GPSæ— æ•°æ®,æŠ¥è­¦
+		if(s_sec_counter_2 >= GPS_BREAK_DOWM_SEC_TIMER)///GPSÎŞÊı¾İ,±¨¾¯
 		{
 			if(!(sys_work_para_struct.term_run_status_word & STATE_GPS_BREAKDOWN))
 			{
@@ -440,10 +440,10 @@ void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
 			s_sec_counter_2 = GPS_BREAK_DOWM_SEC_TIMER;
 		}
 	}
-	///é‡å¯ç­–ç•¥
+	///ÖØÆô²ßÂÔ
 	s_sec_counter_1 += 	past_sec;
 	if((s_sec_counter_2 >= SYS_TASK_SEC_TIMER)&&
-	   (s_sec_counter_1 >= SYS_TASK_SEC_TIMER))///æ— æ•°æ®Nç§’é‡å¯1æ¬¡
+	   (s_sec_counter_1 >= SYS_TASK_SEC_TIMER))///ÎŞÊı¾İNÃëÖØÆô1´Î
 	{
 		if(s_sec_counter_2 < GPS_BREAK_DOWM_SEC_TIMER)
 		{
@@ -452,7 +452,7 @@ void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
 			gps_struct.sms_gprmc_ack[0] = '\0';
 			LocalDebug("gps module restart\r\n",StrLen("gps module restart\r\n",0),LOCAL_TEST_DEBUG);
 			s_sec_counter_1 = 0x00;
-			OFF_GPS_PWR();///é‡å¯GPSæ¨¡å—
+			OFF_GPS_PWR();///ÖØÆôGPSÄ£¿é
 			USART_DeInit(GPS_USART);
 			SysDelay(2*WAIT_1S);
 			UsartInit(GPS_USART,GPS_USART_BPR,USART_DATA_8B,USART_STOPBITS_1,USART_PARITY_NO);
@@ -460,7 +460,7 @@ void GpsMonitor(uint16 past_sec)///GPSæ¨¡å—æ•…éšœæ£€æµ‹,é‡å¯ç­–ç•¥
 		}
 	}
 }
-void GprsMonitor(uint16 past_sec)///GPRSæ¨¡å—æ— æ•°æ®é‡å¯ç­–ç•¥
+void GprsMonitor(uint16 past_sec)///GPRSÄ£¿éÎŞÊı¾İÖØÆô²ßÂÔ
 {
 	pro_struct.no_rx_data_sec_counter += past_sec;
 	
@@ -468,7 +468,7 @@ void GprsMonitor(uint16 past_sec)///GPRSæ¨¡å—æ— æ•°æ®é‡å¯ç­–ç•¥
 	{
 		LocalDebug("GPRS no rx center data restart\r\n",StrLen("GPRS no rx center data restart\r\n",0),LOCAL_TEST_DEBUG);
 		pro_struct.no_rx_data_sec_counter = 0;
-		gsm_misc_struct.cur_mode = POWER_INIT_MODE;///Gsmæ¨¡å—é‡å¯
+		gsm_misc_struct.cur_mode = POWER_INIT_MODE;///GsmÄ£¿éÖØÆô
 	}
 }
 
@@ -478,7 +478,7 @@ void SpeedMonitor(uint16 past_sec)
 
 	if((sys_private_para_struct.over_speed_alarm[0] == INVALID_VAL_FF)&&
 	   (sys_private_para_struct.over_speed_alarm[1] == INVALID_VAL_FF))
-	{///éƒ½ä¸ºFF,åˆ™å±è”½è¶…é€Ÿæ£€æµ‹
+	{///¶¼ÎªFF,ÔòÆÁ±Î³¬ËÙ¼ì²â
 		goto RETURN_LAB;
 	}
 	
@@ -525,10 +525,10 @@ void TrailerMonitor(uint16 past_sec)
 	
 	if((!(sys_work_para_struct.term_run_status_word & STATE_ACC_ON))&&
 	   (sys_work_para_struct.term_run_status_word & STATE_A_GPS)&&
-	   (sys_data_struct.gps_info_of_gprs[SPEED_INDEX] > 10))///ACCå…³ï¼Œå¤§äº10å…¬é‡Œ
+	   (sys_data_struct.gps_info_of_gprs[SPEED_INDEX] > 10))///ACC¹Ø£¬´óÓÚ10¹«Àï
 	{			
 		s_trailer_sec_counter += past_sec;
-		if(!(sys_work_para_struct.term_run_status_word & STATE_TRAILER))///å‘ç°æ‹–è½¦æ—¶,å»¶æ—¶ä¼‘çœ 
+		if(!(sys_work_para_struct.term_run_status_word & STATE_TRAILER))///·¢ÏÖÍÏ³µÊ±,ÑÓÊ±ĞİÃß
 		{
 			if(s_trailer_sec_counter > 10)
 			{
@@ -540,7 +540,7 @@ void TrailerMonitor(uint16 past_sec)
 			}
 		}
 		
-		if(s_trailer_sec_counter >= 120)///120ç§’
+		if(s_trailer_sec_counter >= 120)///120Ãë
 		{
 			if(!(sys_work_para_struct.term_run_status_word & STATE_TRAILER))
 			{
@@ -553,7 +553,7 @@ void TrailerMonitor(uint16 past_sec)
 	}
 	else
 	{
-		///ACCå¼€ï¼Œæˆ–è€…ACCå…³ä¸”é€Ÿåº¦å°äº10å…¬é‡Œ
+		///ACC¿ª£¬»òÕßACC¹ØÇÒËÙ¶ÈĞ¡ÓÚ10¹«Àï
 		if(sys_work_para_struct.term_run_status_word & STATE_ACC_ON)
 		{
 			s_trailer_sec_counter = 0;
@@ -590,7 +590,7 @@ void VoltageMonitor(uint16 past_sec)
 	
 	if((sys_private_para_struct.low_voltage_alarm[0] == INVALID_VAL_FF)&&
 	   (sys_private_para_struct.low_voltage_alarm[1] == INVALID_VAL_FF))
-	{///éƒ½ä¸ºFF,åˆ™å±è”½ä½å‹æ£€æµ‹
+	{///¶¼ÎªFF,ÔòÆÁ±ÎµÍÑ¹¼ì²â
 		goto AD_CONVERT_LAB;
 	}
 	
@@ -630,7 +630,7 @@ void VoltageMonitor(uint16 past_sec)
 		}
 	}
 AD_CONVERT_LAB:
-	ADC_SoftwareStartConvCmd(ADC1, ENABLE);///ç³»ç»Ÿè°ƒç”¨ï¼Œå¼€å¯1æ¬¡ADè½¬æ¢
+	ADC_SoftwareStartConvCmd(ADC1, ENABLE);///ÏµÍ³µ÷ÓÃ£¬¿ªÆô1´ÎAD×ª»»
 }
 
 void AccOnOffDataAppend(uint8 time[],uint8 is_acc_on_falg)
@@ -747,7 +747,7 @@ void DayChangeMonitor(uint8 date_time[])
 	
 	if(sys_work_para_struct.term_3_clock_reset_flag)
 	{
-		sys_work_para_struct.term_3_clock_reset_flag = FALSE;///æ¸…3ç‚¹é‡å¯æ ‡å¿—
+		sys_work_para_struct.term_3_clock_reset_flag = FALSE;///Çå3µãÖØÆô±êÖ¾
 		bias_addr = ((uint8*)&sys_work_para_struct.term_3_clock_reset_flag) - ((uint8*)sys_work_para_struct.acc_on_sec_statistic_counter);
 		res = SpiFramWrite(SYS_WORK_PARA_STRUCT_START_ADDR+bias_addr,(uint8*)&sys_work_para_struct.term_3_clock_reset_flag,1);
 		if(!res)
@@ -758,7 +758,7 @@ void DayChangeMonitor(uint8 date_time[])
 	
 	if(sys_work_para_struct.term_run_status_word & STATE_ACC_ON)
 	{
-		if(date_time[3] == 0x00)///æ­£å¸¸è¿‡0ç‚¹
+		if(date_time[3] == 0x00)///Õı³£¹ı0µã
 		{
 			AccOnOffDataAppend(tmp_time,FALSE);
 			AccOnOffDataInit(date_time);
@@ -819,7 +819,7 @@ void RingSmsMonitor(uint16 past_sec)
 		gsm_misc_struct.first_deal_sms_sec_counter += past_sec;
 		if(gsm_misc_struct.first_deal_sms_sec_counter >= 2*SYS_TASK_SEC_TIMER)
 		{
-			gsm_misc_struct.first_deal_sms_flag = FALSE;
+			gsm_misc_struct.first_deal_sms_flag = FALSE;	//-Ã»ÓĞÔÚ¹æ¶¨Ê±¼äÄÚ´¦Àí¾ÍÈÏÎª³ö´íÁË
 			gsm_misc_struct.gsm_ring_low_ms_counter = 200;
 			gsm_misc_struct.gsm_rx_sms_flag = TRUE;
 		}
@@ -837,7 +837,7 @@ void RingSmsMonitor(uint16 past_sec)
 			}
 			else
 			{
-				gsm_misc_struct.gsm_rx_ring_flag = TRUE;
+				gsm_misc_struct.gsm_rx_ring_flag = TRUE;	//-ËµÃ÷ÓĞµç»°ºôÈë
 			}
 			gsm_misc_struct.ring_low_counter = 0;
 		}
@@ -944,7 +944,7 @@ void SysDelay(uint8 delay_sec)
 	sys_misc_run_struct.systask_delay_flag = FALSE;
 }
 
-void SysTaskMain(void)///ç³»ç»Ÿä»»åŠ¡
+void SysTaskMain(void)///ÏµÍ³ÈÎÎñ
 {
 	uint8 date_time[6];
 	uint16 past_sec;
@@ -952,15 +952,15 @@ void SysTaskMain(void)///ç³»ç»Ÿä»»åŠ¡
 	static uint16 sys_rtc_cur_val=0;
 	static uint16 sec_total = 0;
 	
-	sys_rtc_cur_val = sys_misc_run_struct.sys_rtc_sec_counter;///è·å–ç³»ç»Ÿmsè®¡æ•°ï¼›
+	sys_rtc_cur_val = sys_misc_run_struct.sys_rtc_sec_counter;///»ñÈ¡ÏµÍ³ms¼ÆÊı£»
 	past_sec = (sys_rtc_cur_val + (65535 - sys_rtc_pre_val)) % 65535;
 	
-	if(past_sec > 0)
+	if(past_sec > 0)	//-¿ÉÒÔ¿ØÖÆ´¦ÀíµÄ¼ä¸ô
 	{
 		if(past_sec < 10)
 		{	
 			sec_total += past_sec;	
-			if(sec_total >= 600)///10åˆ†é’Ÿ,æ ¡å¯¹1æ¬¡RTC
+			if(sec_total >= 600)///10·ÖÖÓ,Ğ£¶Ô1´ÎRTC
 			{
 				sec_total = 0;
 				sys_misc_run_struct.gps_need_datetime_check_flag = TRUE;
@@ -971,7 +971,7 @@ void SysTaskMain(void)///ç³»ç»Ÿä»»åŠ¡
 			{
 				pro_struct.tx_struct.acc_on_tx_sec_counter += past_sec;
 			}
-			TerminalHeart(past_sec);			///ç»ˆç«¯å¿ƒè·³
+			TerminalHeart(past_sec);			///ÖÕ¶ËĞÄÌø
 			/**
 			sys_misc_run_struct.tmp_sec_counter += past_sec;
 			if(sys_misc_run_struct.tmp_sec_counter > 60)
@@ -982,23 +982,23 @@ void SysTaskMain(void)///ç³»ç»Ÿä»»åŠ¡
 				DayChangeMonitor(date_time);
 			}
 			**/	
-			DayChangeMonitor(date_time);		///æ—¥æ›´æ–°æ£€æµ‹
-			AccMonitor(past_sec,date_time+3);	///ACCå¼€å…³æ£€æµ‹
-			PowerMonitor(past_sec);				///æ–­ç”µæ£€æµ‹
-			ShellMonitor(past_sec);				///æ‹†å£³æ£€æµ‹
-			GpsAntMonitor(past_sec);			///GPSå¤©çº¿æ£€æµ‹
-			GpsMonitor(past_sec);				///GPSæ¨¡å—æ£€æµ‹
-			CanMonitor(past_sec);				///ä»ªè¡¨æ•…éšœæ£€æµ‹
-			GprsMonitor(past_sec);				///GPRSæ¨¡å—æ£€æµ‹
-			SpeedMonitor(past_sec);				///è¶…é€Ÿæ£€æµ‹
-			TrailerMonitor(past_sec);			///æ‹–è½¦æ£€æµ‹
-			VoltageMonitor(past_sec);			///ç”µå‹æ£€æµ‹
-			GsmCsqCheckMonitor(past_sec);		///GSM CSQæ£€æµ‹
-			LatLongPositionMonitor(past_sec);	///ç»çº¬åº¦ä¿¡æ¯ä¸Šä¼ 
-			ProPeriodTx(past_sec);				///ä¸Šè¡Œåè®®å‘é€
-			RingSmsMonitor(past_sec);			///ç”µè¯çŸ­ä¿¡ç›‘æµ‹
-			LsnalLockMonitor(past_sec);			///ç›²åŒºé”è½¦ç›‘æµ‹
-			KeyDataSave(past_sec);				///2åˆ†é’Ÿå­˜1æ¬¡å…³é”®æ•°æ®
+			DayChangeMonitor(date_time);		///ÈÕ¸üĞÂ¼ì²â
+			AccMonitor(past_sec,date_time+3);	///ACC¿ª¹Ø¼ì²â
+			PowerMonitor(past_sec);				///¶Ïµç¼ì²â
+			ShellMonitor(past_sec);				///²ğ¿Ç¼ì²â
+			GpsAntMonitor(past_sec);			///GPSÌìÏß¼ì²â
+			GpsMonitor(past_sec);				///GPSÄ£¿é¼ì²â
+			CanMonitor(past_sec);				///ÒÇ±í¹ÊÕÏ¼ì²â
+			GprsMonitor(past_sec);				///GPRSÄ£¿é¼ì²â
+			SpeedMonitor(past_sec);				///³¬ËÙ¼ì²â
+			TrailerMonitor(past_sec);			///ÍÏ³µ¼ì²â
+			VoltageMonitor(past_sec);			///µçÑ¹¼ì²â
+			GsmCsqCheckMonitor(past_sec);		///GSM CSQ¼ì²â
+			LatLongPositionMonitor(past_sec);	///¾­Î³¶ÈĞÅÏ¢ÉÏ´«
+			ProPeriodTx(past_sec);				///ÉÏĞĞĞ­Òé·¢ËÍ
+			RingSmsMonitor(past_sec);			///µç»°¶ÌĞÅ¼à²â
+			LsnalLockMonitor(past_sec);			///Ã¤ÇøËø³µ¼à²â
+			KeyDataSave(past_sec);				///2·ÖÖÓ´æ1´Î¹Ø¼üÊı¾İ
 		}
 		sys_rtc_pre_val = sys_rtc_cur_val;
 	}

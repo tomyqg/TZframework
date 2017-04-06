@@ -764,7 +764,7 @@ void GprsAtInit(void)
 	gsm_misc_struct.gsm_mode_exe_flag[1] = AT_EXE_SUCESS;
 	return;
 RET_LAB:
-	gsm_misc_struct.cur_mode = POWER_INIT_MODE;
+	gsm_misc_struct.cur_mode = POWER_INIT_MODE;	//-初始化失败之后,再次准备复位
 	gsm_misc_struct.gsm_mode_exe_flag[1] = AT_EXE_FAIL;
 }
 uint8 GprsSwitchAtMode(uint8 cur_mode)
@@ -938,20 +938,20 @@ void GprsMain(void)
 		gsm_misc_struct.gsm_module_reset_counter++;
 		if(gsm_misc_struct.gsm_module_reset_counter > 5)
 		{
-			TermReset();
+			TermReset();	//-GSM模块重启
 		}
 		LocalDebug("GSM module restart...\r\n",StrLen("GSM module restart...\r\n",0),LOCAL_TEST_DEBUG);
 		GprsParaInit();
 		GprsPowerInit();
 	}
-	else if(gsm_misc_struct.cur_mode == AT_INIT_MODE)
+	else if(gsm_misc_struct.cur_mode == AT_INIT_MODE)	//-成功启动之后转入这个模式
 	{
 		gsm_misc_struct.gsm_mode_exe_flag[1] = AT_NOT_EXE;
 		LocalDebug("GSM AT init...\r\n",StrLen("GSM AT init...\r\n",0),LOCAL_TEST_DEBUG);
 		GsmVaryInit();
 		GprsAtInit();
 	}
-	else if(gsm_misc_struct.cur_mode == PPP_MODE)
+	else if(gsm_misc_struct.cur_mode == PPP_MODE)	//-成功初始化之后进入这个模式
 	{
 		gsm_misc_struct.gsm_module_reset_counter = 0;
 		PppInit();
@@ -962,7 +962,7 @@ void GprsMain(void)
 		GsmCsqCheck();///CSQ检测
 		sys_misc_run_struct.gsm_csq_check_flag = FALSE;
 	}
-	if(gsm_misc_struct.gsm_rx_ring_flag||gsm_misc_struct.gsm_rx_sms_flag)
+	if(gsm_misc_struct.gsm_rx_ring_flag||gsm_misc_struct.gsm_rx_sms_flag)	//-判断是否有电话或者短信到来
 	{
 		if(gsm_misc_struct.gsm_ring_low_ms_counter >= 50)
 		{

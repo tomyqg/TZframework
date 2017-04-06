@@ -589,11 +589,11 @@ void LocalUartIsRxDone(uint16 past_ms_val)
 		
 		if((g_local_uart_struct.rx_delay_time_counter == 0)&&(g_local_uart_struct.rx_counter > 0))
 		{
-			g_local_uart_struct.rx_flag = VALID_VAL_AA;
+			g_local_uart_struct.rx_flag = VALID_VAL_AA;	//-说明一帧完整
 		}
 	}
 }
-uint16 GetLocalUartRxData(uint8 rx_data[])
+uint16 GetLocalUartRxData(uint8 rx_data[])	//-取出数据备分析
 {
 	uint16 rx_counter = 0;
 	
@@ -839,10 +839,10 @@ void DriverMain(void)
 	
 	sys_tick_cur_val = sys_misc_run_struct.sys_tick_ms_counter;///获取系统ms计数；
 	
-	past_ms_val = (sys_tick_cur_val + (65535 - sys_tick_pre_val)) % 65535;
+	past_ms_val = (sys_tick_cur_val + (65535 - sys_tick_pre_val)) % 65535;	//-得运行时间段
 	GpsUartIsRxDone(past_ms_val);
-	LocalUartIsRxDone(past_ms_val);
-	GprsUartIsRxDone(past_ms_val);
+	LocalUartIsRxDone(past_ms_val);	//-这里准备的前提是速度足够快,每两次判断的时间够短
+	GprsUartIsRxDone(past_ms_val);		//-提取可能有效的GPRS发送过来的串口数据
 	MeterUartIsRxDone(past_ms_val);
 	sys_tick_pre_val = sys_tick_cur_val;
 }

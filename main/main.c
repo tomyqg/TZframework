@@ -3,7 +3,7 @@
 int main(void)
 { 
 	GpioInit();
-	ON_GPS_PWR();///GPS鐢垫簮锛孡OCAL 232鐢垫簮
+	ON_GPS_PWR();///GPS电源，LOCAL 232电源
 
 	#ifdef ENABLE_WATCHDOG
 		IwdgInit();
@@ -35,11 +35,11 @@ int main(void)
 	while(1)
 	{
 		FeedWtd();
-		GprsMain();	
-		DriverMain();	///椹卞姩
+		GprsMain();		//-链接外网应该使用的就是这个
+		DriverMain();	///驱动
 		GpsMain();	
 		FeedWtd();
-		SysTaskMain();	///绯荤粺浠诲姟
+		SysTaskMain();	///系统任务
 		LocalCommMain();
 		CanMain();
 		

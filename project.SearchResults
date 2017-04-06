@@ -1,20 +1,3 @@
----- FeedWtd 匹配 (19 in 8 文件) ----
-Driver.c (src):void FeedWtd(void)
-Driver.c (src):		FeedWtd();
-Driver.c (src):		FeedWtd();
-Driver.h (inc):	void FeedWtd(void);
-Ftp.c (src):		FeedWtd();
-Ftp.c (src):		FeedWtd();
-Gprs.c (src):		FeedWtd();
-Localcomm.c (src):		FeedWtd();
-Main.c (main):	FeedWtd();
-Main.c (main):	FeedWtd();
-Main.c (main):		FeedWtd();
-Main.c (main):		FeedWtd();
-Selfdef.c (src):		FeedWtd();
-Systask.c (src):	FeedWtd();
-Systask.c (src):		FeedWtd();
-Systask.c (src):	FeedWtd();
-Systask.c (src):	FeedWtd();
-Systask.c (src):		FeedWtd();
-Systask.c (src):		FeedWtd();
+---- GprsUartIsRxDone 匹配 (2 in 1 文件) ----
+Driver.c (src):void GprsUartIsRxDone(uint16 past_ms_val)
+Driver.c (src):	GprsUartIsRxDone(past_ms_val);

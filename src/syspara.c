@@ -5,29 +5,29 @@
 
 const SERIAL_COMM_STRUCT serial_comm_struct[] =
  {
-	{SYS_PARA_SMS_ALARM_CENTER_NUM_ID,0x0001},///æŠ¥è­¦çŸ­ä¿¡ä¸­å¿ƒ
+	{SYS_PARA_SMS_ALARM_CENTER_NUM_ID,0x0001},///±¨¾¯¶ÌĞÅÖĞĞÄ
 	{SYS_PARA_APN_ID,0x0002},///APN 
-	{SYS_PARA_MASTER_IP_ID,0x0003},///ä¸»ä¸­å¿ƒIP
-	{SYS_PARA_MASTER_DNS_ID,0x0004},///ä¸»ä¸­å¿ƒåŸŸå
-	{SYS_PARA_SLAVER_IP_ID,0x0005},///å‰¯ä¸­å¿ƒIP
-	{SYS_PARA_SLAVER_DNS_ID,0x0006},///å‰¯ä¸­å¿ƒåŸŸå
+	{SYS_PARA_MASTER_IP_ID,0x0003},///Ö÷ÖĞĞÄIP
+	{SYS_PARA_MASTER_DNS_ID,0x0004},///Ö÷ÖĞĞÄÓòÃû
+	{SYS_PARA_SLAVER_IP_ID,0x0005},///¸±ÖĞĞÄIP
+	{SYS_PARA_SLAVER_DNS_ID,0x0006},///¸±ÖĞĞÄÓòÃû
 	{SYS_PARA_PORT_ID,0x0007},///Port
-	{SYS_PARA_SLEEP_TIMER_ID,0x0008},///ä¼‘çœ æ—¶é—´
-	{SYS_PARA_WORK_PARA_ID,0x0009},///å·¥ä½œå‚æ•°ä¸Šä¼ 
+	{SYS_PARA_SLEEP_TIMER_ID,0x0008},///ĞİÃßÊ±¼ä
+	{SYS_PARA_WORK_PARA_ID,0x0009},///¹¤×÷²ÎÊıÉÏ´«
 	{SYS_PARA_TERMINAL_ID,0x000A},///SIMCARD ID
-	{SYS_PARA_PASSWORD_ID,0x000B},///å¯†ç 
-	{SYS_PARA_RECOVER_ID,0x000C},///æ¢å¤å‡ºå‚è®¾ç½®
-	{SYS_PARA_SOFTWARE_VERSION_ID,0x000D},///ç¨‹åºç‰ˆæœ¬å·(åªè¯»)
-	{SYS_PARA_ACC_STATISTIC_ID,0x000E},///ACCç»Ÿè®¡æ—¶é—´
-	{SYS_PARA_TERMINAL_SERIAL_ID,0x000F},///ç»ˆç«¯åºåˆ—å·
-	{SYS_PARA_METER_ERR_TIMER_ID,0x0010},///ä»ªè¡¨æ•…éšœæ—¶é—´
-	{SYS_PARA_HARDWARE_VERSION_ID,0x0011},///ç¡¬ä»¶ç‰ˆæœ¬å·
-	{SYS_PARA_OVER_SPEED_ID,0x0012},///è¶…é€Ÿå‚æ•°
-	{SYS_PARA_LOW_VOLTAGE_ALARM_ID,0x0013},///ä½å‹æŠ¥è­¦å‚æ•°
-	{SYS_PARA_LSNAL_LOCK_MIN_ID,0x0014},///ç›²åŒºè¢«åŠ¨é”è½¦æ—¶é—´ï¼Œåˆ†é’Ÿ
-	{SYS_PARA_LSNAL_LOCK_ENABLE_ID,0x0015},///ç›²åŒºè¢«åŠ¨é”è½¦ä½¿èƒ½
-	{SYS_PARA_DEBUG_ENABLE_ID,0x0100},///è°ƒè¯•ä½¿èƒ½
-	{SYS_PARA_RESET_ID,0x0101}///ç»ˆç«¯å¤ä½
+	{SYS_PARA_PASSWORD_ID,0x000B},///ÃÜÂë
+	{SYS_PARA_RECOVER_ID,0x000C},///»Ö¸´³ö³§ÉèÖÃ
+	{SYS_PARA_SOFTWARE_VERSION_ID,0x000D},///³ÌĞò°æ±¾ºÅ(Ö»¶Á)
+	{SYS_PARA_ACC_STATISTIC_ID,0x000E},///ACCÍ³¼ÆÊ±¼ä
+	{SYS_PARA_TERMINAL_SERIAL_ID,0x000F},///ÖÕ¶ËĞòÁĞºÅ
+	{SYS_PARA_METER_ERR_TIMER_ID,0x0010},///ÒÇ±í¹ÊÕÏÊ±¼ä
+	{SYS_PARA_HARDWARE_VERSION_ID,0x0011},///Ó²¼ş°æ±¾ºÅ
+	{SYS_PARA_OVER_SPEED_ID,0x0012},///³¬ËÙ²ÎÊı
+	{SYS_PARA_LOW_VOLTAGE_ALARM_ID,0x0013},///µÍÑ¹±¨¾¯²ÎÊı
+	{SYS_PARA_LSNAL_LOCK_MIN_ID,0x0014},///Ã¤Çø±»¶¯Ëø³µÊ±¼ä£¬·ÖÖÓ
+	{SYS_PARA_LSNAL_LOCK_ENABLE_ID,0x0015},///Ã¤Çø±»¶¯Ëø³µÊ¹ÄÜ
+	{SYS_PARA_DEBUG_ENABLE_ID,0x0100},///µ÷ÊÔÊ¹ÄÜ
+	{SYS_PARA_RESET_ID,0x0101}///ÖÕ¶Ë¸´Î»
 };
 ///{"13913886859"},
 const SYS_CONST_PARA_STRUCT	sys_const_para_struct = 
@@ -40,9 +40,9 @@ const SYS_CONST_PARA_STRUCT	sys_const_para_struct =
 
 void SysCommParaInit(void)
 {
-	uint8 sms_alarm_center_num[] = {"106380005668"};	///çŸ­ä¿¡æŠ¥è­¦ä¸­å¿ƒ
+	uint8 sms_alarm_center_num[] = {"106380005668"};	///¶ÌĞÅ±¨¾¯ÖĞĞÄ
 	
-	uint8 master_ip_dns[] = {'I',58,218,196,207};///å¾å·¥1.0 Yè¡¨ç¤ºæ˜¯åŸŸåï¼ŒIè¡¨ç¤ºæ˜¯IP
+	uint8 master_ip_dns[] = {'I',58,218,196,207};///Ğì¹¤1.0 Y±íÊ¾ÊÇÓòÃû£¬I±íÊ¾ÊÇIP
 	uint8 slaver_ip_dns[] = {'I',211,103,127,149};
 	uint8 port[2] = {0x19,0xc8}; ///6600
 	
@@ -62,9 +62,9 @@ void SysCommParaInit(void)
 	MemCpy(sys_private_para_struct.terminal_id,term_id,5);
 	MemCpy(sys_private_para_struct.sms_alarm_center_num,sms_alarm_center_num,StrLen(sms_alarm_center_num,0)+1);
 	MemCpy(sys_private_para_struct.master_ip_dns,master_ip_dns,5);///IP
-    ///MemCpy(sys_private_para_struct.master_ip_dns,master_ip_dns,StrLen(master_ip_dns,0)+1);///DNSæ—¶å¯ç”¨
+    ///MemCpy(sys_private_para_struct.master_ip_dns,master_ip_dns,StrLen(master_ip_dns,0)+1);///DNSÊ±ÆôÓÃ
 	MemCpy(sys_private_para_struct.slaver_ip_dns,slaver_ip_dns,5);///IP
-    ///MemCpy(sys_private_para_struct.slaver_ip_dns,slaver_ip_dns,StrLen(slaver_ip_dns,0)+1);///DNSæ—¶å¯ç”¨
+    ///MemCpy(sys_private_para_struct.slaver_ip_dns,slaver_ip_dns,StrLen(slaver_ip_dns,0)+1);///DNSÊ±ÆôÓÃ
 	MemCpy(sys_private_para_struct.port,port,2);
 	MemCpy(sys_private_para_struct.apn,apn,StrLen(apn,0)+1);
 	MemCpy(sys_private_para_struct.gprs_login_user_name,gprs_login_user_name,StrLen(gprs_login_user_name,0)+1);
@@ -77,17 +77,17 @@ void SysPrivateParaInit(void)
 	
 	sys_private_para_struct.terminal_password = 111111;
 
-	sys_private_para_struct.up_heart_beat_sec_timer = 30;///30ç§’æ— æ•°æ®ä¸Šä¼ ï¼Œåˆ™ä¸Šä¼ 1æ¬¡å¿ƒè·³
-	sys_private_para_struct.over_speed_alarm[0] = 120;///è¶…é€ŸæŠ¥è­¦å€¼
-	sys_private_para_struct.over_speed_alarm[1] = 30; ///è¶…é€ŸæŠ¥è­¦ç§’å®šæ—¶å™¨ï¼Œ(è¶…é€ŸæŠ¥è­¦å€¼,è¶…é€ŸæŠ¥è­¦ç§’å®šæ—¶å™¨è‹¥éƒ½ä¸º0XFF,åˆ™å…³é—­è¶…é€ŸåŠŸèƒ½)
-	sys_private_para_struct.low_voltage_alarm[0] = 220;///ä½å‹æŠ¥è­¦å€¼220ä»£è¡¨22Vï¼Œ110ä»£è¡¨11V
-	sys_private_para_struct.low_voltage_alarm[1] = 255;///ä½å‹æŠ¥è­¦å€¼æ—¶é—´255ç§’
-	sys_private_para_struct.meter_comm_breakdown_alarm_sec_timer = 300;///ä»ªè¡¨æ•…éšœæŠ¥è­¦æ—¶é—´300ç§’
-	sys_private_para_struct.acc_off_sleep_sec_timer = 600;///ACCå…³ï¼Œè¿›å…¥ä¼‘çœ æ—¶é—´600ç§’
-	sys_private_para_struct.acc_on_up_work_para_sec_timer = 120;///å·¥ä½œå‚æ•°ACCå¼€ä¸Šä¼ é—´éš”2åˆ†é’Ÿ
-	sys_private_para_struct.acc_off_up_work_para_sec_timer = 3600;///å·¥ä½œå‚æ•°ACCå…³ä¸Šä¼ é—´éš”60åˆ†é’Ÿ
-	sys_private_para_struct.lsnal_lock_enable_flag = 0;///ç›²åŒºè¢«åŠ¨é”è½¦ä½¿èƒ½
-	sys_private_para_struct.lsnal_min_timer = 43200;///ç›²åŒºåˆ†é’Ÿè®¡æ•°ï¼Œ30å¤©ï¼Œ72*60åˆ†é’Ÿ
+	sys_private_para_struct.up_heart_beat_sec_timer = 30;///30ÃëÎŞÊı¾İÉÏ´«£¬ÔòÉÏ´«1´ÎĞÄÌø
+	sys_private_para_struct.over_speed_alarm[0] = 120;///³¬ËÙ±¨¾¯Öµ
+	sys_private_para_struct.over_speed_alarm[1] = 30; ///³¬ËÙ±¨¾¯Ãë¶¨Ê±Æ÷£¬(³¬ËÙ±¨¾¯Öµ,³¬ËÙ±¨¾¯Ãë¶¨Ê±Æ÷Èô¶¼Îª0XFF,Ôò¹Ø±Õ³¬ËÙ¹¦ÄÜ)
+	sys_private_para_struct.low_voltage_alarm[0] = 220;///µÍÑ¹±¨¾¯Öµ220´ú±í22V£¬110´ú±í11V
+	sys_private_para_struct.low_voltage_alarm[1] = 255;///µÍÑ¹±¨¾¯ÖµÊ±¼ä255Ãë
+	sys_private_para_struct.meter_comm_breakdown_alarm_sec_timer = 300;///ÒÇ±í¹ÊÕÏ±¨¾¯Ê±¼ä300Ãë
+	sys_private_para_struct.acc_off_sleep_sec_timer = 600;///ACC¹Ø£¬½øÈëĞİÃßÊ±¼ä600Ãë
+	sys_private_para_struct.acc_on_up_work_para_sec_timer = 120;///¹¤×÷²ÎÊıACC¿ªÉÏ´«¼ä¸ô2·ÖÖÓ
+	sys_private_para_struct.acc_off_up_work_para_sec_timer = 3600;///¹¤×÷²ÎÊıACC¹ØÉÏ´«¼ä¸ô60·ÖÖÓ
+	sys_private_para_struct.lsnal_lock_enable_flag = 0;///Ã¤Çø±»¶¯Ëø³µÊ¹ÄÜ
+	sys_private_para_struct.lsnal_min_timer = 43200;///Ã¤Çø·ÖÖÓ¼ÆÊı£¬30Ìì£¬72*60·ÖÖÓ
 	RamClear(sys_private_para_struct.sim_card_imsi,SIM_CARD_IMSI_LEN);
 }
 			
@@ -95,13 +95,13 @@ void SysWorkParaInit(void)
 {
 	uint8 default_gps_of_gprs_info[] = {0x01,0xE8,0x2C,0x21,0x07,0x13,0xB9,0x7A,0x00,0x00,0x00,0x00};
 							/*** 
-							  0x01,0xE8,0x2C,0x21,///çº¬åº¦
-							  0x07,0x13,0xB9,0x7A,///ç»åº¦
-							  0x00,///é€Ÿåº¦
-							  0x00,///æ–¹å‘
-							  0x00,0x00///æµ·æ‹”
+							  0x01,0xE8,0x2C,0x21,///Î³¶È
+							  0x07,0x13,0xB9,0x7A,///¾­¶È
+							  0x00,///ËÙ¶È
+							  0x00,///·½Ïò
+							  0x00,0x00///º£°Î
 							***/  
-	uint8 date_time[] = {0x10,0x05,0x1b,0x0E,0x08,0x08};///å¹´æœˆæ—¥æ—¶åˆ†ç§’
+	uint8 date_time[] = {0x10,0x05,0x1b,0x0E,0x08,0x08};///ÄêÔÂÈÕÊ±·ÖÃë
 	sys_work_para_struct.acc_on_sec_statistic_counter = 0x00;
 	sys_work_para_struct.acc_on_sec_counter = 0x00;
 	sys_work_para_struct.acc_off_sec_counter = 0x00;
@@ -116,9 +116,9 @@ void SysWorkParaInit(void)
 	sys_work_para_struct.lsnal_sys_must_reset_sec_counter = 0;
 	sys_work_para_struct.lsnal_sys_comm_reset_min_counter = 0;
 	sys_work_para_struct.can_stop_heart_min_counter = 0X00;
-	sys_work_para_struct.term_run_status_word = 0x06000000;///çŠ¶æ€å­—
+	sys_work_para_struct.term_run_status_word = 0x06000000;///×´Ì¬×Ö
 	MemCpy(sys_work_para_struct.date_time,date_time,6);
-	sys_work_para_struct.track_of_acc_on_sec_timer = 0;///è¿½è¸ªç§’å®šæ—¶å™¨ï¼Œä¸º0ï¼Œåˆ™å…³é—­è¿½è¸ªåŠŸèƒ½
+	sys_work_para_struct.track_of_acc_on_sec_timer = 0;///×·×ÙÃë¶¨Ê±Æ÷£¬Îª0£¬Ôò¹Ø±Õ×·×Ù¹¦ÄÜ
 	sys_work_para_struct.track_of_acc_on_sec_counter = 0x00;
 	sys_work_para_struct.sms_lock_car_flag = INVALID_VAL_FF;
 	sys_work_para_struct.term_3_clock_reset_flag = FALSE;
@@ -126,7 +126,7 @@ void SysWorkParaInit(void)
 	sys_work_para_struct.no_simcard_falg = FALSE;
 	sys_work_para_struct.gps_ant_off_sec_counter = 0;
 	
-	lock_record_struct.flag_2a = INVALID_VAL_FF;///æ¸…é”è½¦æ ‡å¿—
+	lock_record_struct.flag_2a = INVALID_VAL_FF;///ÇåËø³µ±êÖ¾
 }
 
 uint8 LockRecordRead(void)
@@ -263,10 +263,10 @@ void SysParaRead(void)
 	
 	#ifndef SYS_PARA_INIT
 	SysBootParaRead();
-	if(sys_boot_para_struct.sys_para_init_flag == VALID_VAL_DWORD_AA)///å‚æ•°è¿˜æœªåˆå§‹åŒ–
+	if(sys_boot_para_struct.sys_para_init_flag == VALID_VAL_DWORD_AA)///²ÎÊı»¹Î´³õÊ¼»¯
 	{
 	#endif
-		SysPrivateParaInit();
+		SysPrivateParaInit();	//-ÌîĞ´¸÷Àà²ÎÊı
 		
 		SysWorkParaInit();
 		
@@ -354,7 +354,7 @@ void SysVaryInit(void)
 	sys_work_para_struct.term_run_status_word &= ~STATE_A_GPS;
 	sys_misc_run_struct.gps_need_datetime_check_flag = TRUE;
 	MemCpy(sys_misc_run_struct.link_center_ip,sys_private_para_struct.master_ip_dns+1,4);
-	gsm_misc_struct.cur_mode = POWER_INIT_MODE;
+	gsm_misc_struct.cur_mode = POWER_INIT_MODE;	//-×î³õµÄ×´Ì¬
 	gsm_misc_struct.gsm_mode_exe_flag[0] = AT_NOT_EXE;
 	pro_struct.link_center_ip_index = MASTER_IP_INDEX;
 	gsm_misc_struct.gsm_module_reset_counter = 0;
@@ -371,7 +371,7 @@ void SysVaryInit(void)
 	sys_misc_run_struct.gsm_csq_val = 0;
 	sys_misc_run_struct.up_heart_beat_sec_counter = 0;
 	
-	sys_misc_run_struct.tx_lat_long_sec_counter = 50;///ä¸Šè¡Œå·¥ä½œå‚æ•°ï¼Œç»çº¬åº¦ï¼Œå¿ƒè·³æ•°æ®é”™å¼€
+	sys_misc_run_struct.tx_lat_long_sec_counter = 50;///ÉÏĞĞ¹¤×÷²ÎÊı£¬¾­Î³¶È£¬ĞÄÌøÊı¾İ´í¿ª
 	sys_misc_run_struct.up_heart_beat_sec_counter = 8;
 	pro_struct.tx_struct.acc_on_tx_sec_counter = 0;
 	
@@ -427,7 +427,7 @@ void SysKeyDataSave(void)
 	///SysDataWrite();
 	SpiFramWrite(SYS_DATA_STRUCT_START_ADDR,sys_data_struct.gps_info_of_gprs,LEN_64);
 }
-/***ç³»ç»Ÿå‚æ•°***/
+/***ÏµÍ³²ÎÊı***/
 uint8 GetSmsAlarmCenterNum(uint8 data[])
 {
 	uint8 tmp_len;
@@ -986,8 +986,8 @@ uint8 SetWorkPara(uint8 data[],uint8 len)
 	tmp_val_1 += data[1];
 	tmp_val_2 = data[2] << 8;
 	tmp_val_2 += data[3];
-	if(((tmp_val_1 != 0)&&(tmp_val_1 < 5))||///ACCå¼€æœ€å°é—´éš”ä¸º5ç§’
-	   ((tmp_val_2 != 0)&&(tmp_val_2  < 1800)))///ACCå…³æœ€å°é—´éš”ä¸º1800ç§’
+	if(((tmp_val_1 != 0)&&(tmp_val_1 < 5))||///ACC¿ª×îĞ¡¼ä¸ôÎª5Ãë
+	   ((tmp_val_2 != 0)&&(tmp_val_2  < 1800)))///ACC¹Ø×îĞ¡¼ä¸ôÎª1800Ãë
 	{
 		goto RETURN_LAB;
 	}
@@ -1051,7 +1051,7 @@ uint16 QuerySysPrivatePara(uint8 dst[],uint8 src[],uint16 len,uint8 is_local_fla
 	len /= 2;
 	p = dst;
 	
-	if(len > 64)///æœ€å¤§æ”¯æŒ64ä¸ªå‚æ•°ID
+	if(len > 64)///×î´óÖ§³Ö64¸ö²ÎÊıID
 	{
 		goto RETURN_LAB;
 	}
@@ -1204,7 +1204,7 @@ uint8 SetSysPrivatePara(uint8 data[],uint16 len,uint8 is_local_flag)
 	}
 	switch(cmd)
 	{
-		case SYS_PARA_SMS_ALARM_CENTER_NUM_ID:///æŠ¥è­¦çŸ­ä¿¡ä¸­å¿ƒ
+		case SYS_PARA_SMS_ALARM_CENTER_NUM_ID:///±¨¾¯¶ÌĞÅÖĞĞÄ
 		{
 			res = SetSmsAlarmCenterNum(data+3,len-1);
 			break;
@@ -1214,12 +1214,12 @@ uint8 SetSysPrivatePara(uint8 data[],uint16 len,uint8 is_local_flag)
 			res = SetApn(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_MASTER_IP_ID:///ä¸»ä¸­å¿ƒIP
+		case SYS_PARA_MASTER_IP_ID:///Ö÷ÖĞĞÄIP
 		{
 			res = SetMasterIp(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_SLAVER_IP_ID:///å‰¯ä¸­å¿ƒIP
+		case SYS_PARA_SLAVER_IP_ID:///¸±ÖĞĞÄIP
 		{
 			res = SetSlaverIp(data+3,len-1);
 			break;
@@ -1234,47 +1234,47 @@ uint8 SetSysPrivatePara(uint8 data[],uint16 len,uint8 is_local_flag)
 			res = SetTerminalId(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_PASSWORD_ID:///ç»ˆç«¯å¯†ç  ID
+		case SYS_PARA_PASSWORD_ID:///ÖÕ¶ËÃÜÂë ID
 		{	
 			res = SetTerminalPassword(data+3,len-1);
 			break;
 		}	
-		case SYS_PARA_RECOVER_ID:///æ¢å¤å‡ºå‚è®¾ç½®
+		case SYS_PARA_RECOVER_ID:///»Ö¸´³ö³§ÉèÖÃ
 		{
 			res = ParaRecover(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_TERMINAL_SERIAL_ID:///ç»ˆç«¯åºåˆ—å·
+		case SYS_PARA_TERMINAL_SERIAL_ID:///ÖÕ¶ËĞòÁĞºÅ
 		{
 			res = SetTerminalSerialNum(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_HARDWARE_VERSION_ID:///ç¡¬ä»¶ç‰ˆæœ¬å·
+		case SYS_PARA_HARDWARE_VERSION_ID:///Ó²¼ş°æ±¾ºÅ
 		{
 			res = SetHardwareVersion(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_SLEEP_TIMER_ID:///ä¼‘çœ 
+		case SYS_PARA_SLEEP_TIMER_ID:///ĞİÃß
 		{
 			res = SetSleepTimer(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_ACC_STATISTIC_ID:///ACCå¼€ç»Ÿè®¡æ—¶é—´
+		case SYS_PARA_ACC_STATISTIC_ID:///ACC¿ªÍ³¼ÆÊ±¼ä
 		{
 			res = SetAccStatistic(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_METER_ERR_TIMER_ID:///ä»ªè¡¨æ•…éšœå®šæ—¶å™¨
+		case SYS_PARA_METER_ERR_TIMER_ID:///ÒÇ±í¹ÊÕÏ¶¨Ê±Æ÷
 		{
 			res = SetMeterErrTimer(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_OVER_SPEED_ID:///è¶…é€Ÿ
+		case SYS_PARA_OVER_SPEED_ID:///³¬ËÙ
 		{
 			res = SetOverSpeed(data+3,len-1);
 			break;
 		}
-		case SYS_PARA_LOW_VOLTAGE_ALARM_ID:///ä½å‹
+		case SYS_PARA_LOW_VOLTAGE_ALARM_ID:///µÍÑ¹
 		{
 			res = SetLowVoltageAlarm(data+3,len-1);
 			break;

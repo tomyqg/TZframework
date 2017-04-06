@@ -32,7 +32,7 @@ void PppInit(void)
 	}
 	if(g_ppp_struct.ppp_tx_seq >= 25)
 	{
-		gsm_misc_struct.cur_mode = POWER_INIT_MODE;
+		gsm_misc_struct.cur_mode = POWER_INIT_MODE;	//-失败之后就复位从来
 	}
 }
 void PppNcpProcess(uint8 data[],uint16 len)

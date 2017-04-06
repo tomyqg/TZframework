@@ -54,7 +54,7 @@ void USART1_IRQHandler(void)///本地串口
 			g_local_uart_struct.rx_counter -= 1;
 		}
 		g_local_uart_struct.rx_buf[g_local_uart_struct.rx_counter++] = USART_ReceiveData(USART1);
-		g_local_uart_struct.rx_delay_time_counter = UART_RX_50_MS_DELAY;
+		g_local_uart_struct.rx_delay_time_counter = UART_RX_50_MS_DELAY;	//-接收到最后一个字节后开始计时空闲时间
 	}
 }
 void USART2_IRQHandler(void)///GPS
@@ -150,7 +150,7 @@ void EXTI9_5_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line8);
 		if(gsm_misc_struct.cur_mode >= AT_INIT_MODE)
 		{
-			gsm_misc_struct.ring_low_counter++;
+			gsm_misc_struct.ring_low_counter++;	//-对出现的中断次数进行计数
 			gsm_misc_struct.gsm_ring_low_flag = TRUE;
 			gsm_misc_struct.gsm_ring_low_ms_counter = 0;
 		}
