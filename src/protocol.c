@@ -491,7 +491,7 @@ void ProDownUpgrade(uint8 data[],uint8 len)
 		ack = PRO_EXE_SUCCESS;
 	}
 	
-	ProUpAck(data,ack);
+	ProUpAck(data,ack);	//-给予应答
 	
 	if(res)
 	{
@@ -672,7 +672,7 @@ void ProPacket(uint8 tx_data[],uint16 tx_len,uint8 tx_cmd,uint8 ack_flag)
 				LocalDebug("\r\n",2,LOCAL_PRO_DEBUG);
 			#endif
 
-				UdpTx(tmp_data,tmp_len);
+				UdpTx(tmp_data,tmp_len);	//-一层层组包
 				
 				sys_misc_run_struct.up_heart_beat_sec_counter = 0x00;///上行心跳计时清0
 		}
@@ -1032,7 +1032,7 @@ void ProLsnalSysExit(void)///系统退出盲区补偿
 	}
 }
 /*****协议处理主函数******/
-void ProProcess(uint8 data[],uint16 len)
+void ProProcess(uint8 data[],uint16 len)	//-开始处理V1.0的主协议
 {
 	uint16 tmp_len;
 	
@@ -1076,7 +1076,7 @@ void ProProcess(uint8 data[],uint16 len)
 		return;
 	}
 	
-	len -= 3;
+	len -= 3;	//-去掉结尾3个字符
 
 	if(!MemCmp(data+PRO_TERM_ID_INDEX,sys_private_para_struct.terminal_id,TERMINAL_ID_LEN))///终端ID不对，直接返回
 	{

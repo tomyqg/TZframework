@@ -518,7 +518,7 @@ void PppMainProcess(void)///ppp主要处理
 		goto RET_LAB;
 	}
 	
-	tmp_len = PppPacketDecode(rx_data,rx_len);
+	tmp_len = PppPacketDecode(rx_data,rx_len);	//-这里应该是对串口数据去PPP头
 		
 	if(tmp_len < 4)
 	{	

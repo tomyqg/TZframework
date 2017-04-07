@@ -606,7 +606,7 @@ uint16 GetLocalUartRxData(uint8 rx_data[])	//-取出数据备分析
 	return rx_counter;
 }
 
-void GprsUartFixedLenSend(uint8 data[],uint16 len) 
+void GprsUartFixedLenSend(uint8 data[],uint16 len) //-最终发送数据处,上面进行了层层组装
 {
 	uint16 i;
 	
@@ -645,7 +645,7 @@ void GprsUartIsRxDone(uint16 past_ms_val)
 		
 	}
 }
-uint16 GetGprsUartRxData(uint8 rx_data[])
+uint16 GetGprsUartRxData(uint8 rx_data[])	//-获取到串口数据,是模块发送过来的
 {
 	uint16 rx_counter = 0,ret_len,i,j,k;
 	

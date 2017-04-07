@@ -71,9 +71,9 @@
 			
 			#define PRO_LEN_INDEX 					0
 			#define PRO_TERM_ID_INDEX 				2
-			#define PRO_SEQ_INDEX 					11
-			#define PRO_CMD_ID_INDEX 				13
-			#define PRO_DATA_INDEX					14	
+			#define PRO_SEQ_INDEX 					11	//-命令序号
+			#define PRO_CMD_ID_INDEX 				13	//-命令ID
+			#define PRO_DATA_INDEX					14	//-结尾是两个字节的校验加一个结束符,所以多3个字节
 			///下行命令ID
 			#define PRO_DOWN_HEART_ID 	    		0X00
 			#define PRO_DOWN_COMM_PARA_ACK_ID 	    0X01///通信参数应答

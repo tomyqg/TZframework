@@ -1,3 +1,7 @@
----- GprsUartIsRxDone 匹配 (2 in 1 文件) ----
-Driver.c (src):void GprsUartIsRxDone(uint16 past_ms_val)
-Driver.c (src):	GprsUartIsRxDone(past_ms_val);
+---- CanMain 匹配 (6 in 6 文件) ----
+Can.c (src):void CanMain(void)
+Can.h (inc):	void CanMain(void);
+Gprs.c (src):		CanMain();
+Localcomm.c (src):		CanMain();
+Main.c (main):		CanMain();
+Systask.c (src):		CanMain();

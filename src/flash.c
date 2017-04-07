@@ -18,7 +18,7 @@ uint8 FlashErase(uint32 page_addr)
 	
 	return res;
 }
-uint8 FlashWrite(uint32 start_addr,uint8 wr_data[], uint16 len)
+uint8 FlashWrite(uint32 start_addr,uint8 wr_data[], uint16 len)	//-数据写入到flash中
 {
 	uint8 res;
 	uint32 i,dst,src;

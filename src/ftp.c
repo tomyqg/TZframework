@@ -286,7 +286,7 @@ uint8 FtpGetFile(void)
 /***
 ftp://Vehicle:Vehicle#*@202.102.090.166:21/THAG_M2_0H_12V13_131220.bin
 ***/
-uint8 FtpAddrAnalysis(uint8 data[],uint16 len)
+uint8 FtpAddrAnalysis(uint8 data[],uint16 len)	//-分析提取出需要的内容
 {
 	uint8 *tem_p,*p_file_name,res = FALSE;
   uint8 i,j,file_len;
@@ -490,7 +490,7 @@ void FtpDelay(uint16 delay_sec,uint8 wait_ack_flag)
 		{
 			if(g_gprs_uart_struct.rx_flag == VALID_VAL_AA)
 			{
-				PppMainProcess();
+				PppMainProcess();	//-为了FTP独立的周期判断
 			}
 			if(((ftp_struct.ftp_data_flag)&&(ftp_struct.rx_data_flag))||
 			   ((!ftp_struct.ftp_data_flag)&&(ftp_struct.rx_ctrl_flag)))
@@ -827,7 +827,7 @@ uint8 FtpFun(uint8 pfun(void))
 
 	return ret_res;	
 }
-uint8 FtpMain(void)
+uint8 FtpMain(void)	//-进入自主升级流程
 {
 	uint8 i,res = FALSE;
 	uint8 total_page;
@@ -914,7 +914,7 @@ uint8 FtpMain(void)
 		goto RETURN_LAB;
 	}
 	
-	res = FtpGetFile();
+	res = FtpGetFile();	//-前面进行了各项准备这里开始获取文件
 	if(!res)
 	{
 		goto RETURN_LAB;

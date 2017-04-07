@@ -59,7 +59,7 @@ void SysCommParaInit(void)
 	uint8 gprs_login_user_name[] = {"JSTZ"};
 	uint8 gprs_login_password[] = {"JSTZ"};
 	
-	MemCpy(sys_private_para_struct.terminal_id,term_id,5);
+	MemCpy(sys_private_para_struct.terminal_id,term_id,5);	//-设置车载信息终端ID
 	MemCpy(sys_private_para_struct.sms_alarm_center_num,sms_alarm_center_num,StrLen(sms_alarm_center_num,0)+1);
 	MemCpy(sys_private_para_struct.master_ip_dns,master_ip_dns,5);///IP
     ///MemCpy(sys_private_para_struct.master_ip_dns,master_ip_dns,StrLen(master_ip_dns,0)+1);///DNS时启用
