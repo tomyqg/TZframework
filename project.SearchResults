@@ -1,7 +1,4 @@
----- CanMain 匹配 (6 in 6 文件) ----
-Can.c (src):void CanMain(void)
-Can.h (inc):	void CanMain(void);
-Gprs.c (src):		CanMain();
-Localcomm.c (src):		CanMain();
-Main.c (main):		CanMain();
-Systask.c (src):		CanMain();
+---- GpioInit 匹配 (3 in 3 文件) ----
+Driver.c (src):void GpioInit(void)
+Driver.h (inc):	void GpioInit(void);
+Main.c (main):	GpioInit();

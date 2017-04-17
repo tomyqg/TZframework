@@ -133,7 +133,7 @@ void CanTxData(uint8 data[],uint32 id)
 	TxMessage.RTR = CAN_RTR_DATA;
 	TxMessage.DLC = 8;
 	MemCpy(TxMessage.Data,data,8);
-	CAN_Transmit(CAN1, &TxMessage);
+	CAN_Transmit(CAN1, &TxMessage);	//-最终发送出去
 }
 
 
@@ -276,16 +276,16 @@ void CanTx(void)
 */	
 }
 
-void CanRx(void)
+void CanRx(void)	//-中断接收处理
 {
 	uint8 *p_tmp = NULL;
 	CanRxMsg can_msg;
 	
-	CAN_Receive(CAN1,CAN_FIFO0,&can_msg);
+	CAN_Receive(CAN1,CAN_FIFO0,&can_msg);	//-读出一帧数据
 	
-	if(0x08 == can_msg.DLC)
+	if(0x08 == can_msg.DLC)	//-说明了接收到的帧的长度
 	{
-		switch(can_msg.ExtId)
+		switch(can_msg.ExtId)	//-扩展ID
 		{
 			case CAN_R_0:
 			{
@@ -436,7 +436,7 @@ void CanRx(void)
 	MemCpy(p_tmp,can_msg.Data,8);
 }
 
-void CanMonitor(uint16 past_sec)
+void CanMonitor(uint16 past_sec)	//-周期性的检查是否有内容需要发送出去
 {
 	static uint8 s_sec_counter_1 = 0;
 	static uint16 s_sec_counter_2 = 0;
@@ -495,7 +495,7 @@ void CanMonitor(uint16 past_sec)
 	}
 }
 
-void CanProcess(void)
+void CanProcess(void)	//-正式处理
 {
 	if(can_struct.tx_ack_flag)
 	{
@@ -503,7 +503,7 @@ void CanProcess(void)
 		ProUpControllerAck(can_struct.rx_can_buf+9*ONE_PACKET_LEN,ONE_PACKET_LEN);
 	}                                         
 }
-void CanMain(void)
+void CanMain(void)	//-CAN的主处理进入点
 {
 	if(!ACC_STATE())///ACC开
 	{
